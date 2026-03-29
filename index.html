@@ -1,108 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-/* スクロール用のラッパー */
-.table-container {
-  overflow-x: auto;
-  border: 1px solid #ccc;
-}
-
-/* テーブル */
-table {
-  border-collapse: collapse;
-  min-width: max-content;
-}
-
-/* セル */
-td {
-  border: 1px solid #333;
-  width: 150px;
-  height: 50px;
-  text-align: center;
-}
-
-/* 1行目固定 */
-tr:first-child td,
-tr:first-child th {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 3;
-}
-
-/* 1列目固定 */
-td:first-child, 
-th:first-child {
-  position: sticky;
-  left: 0;
-  background: #fff;
-  z-index: 2;
-}
-
-/* 左上（1行1列）は最前面 */
-tr:first-child th:first-child {
-  z-index: 4;
-}
-
-.reveal {
-  background-color: yellow;
-  cursor: pointer;
-  padding: 2px 4px;
-}
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-.table-container {
-  overflow-x: auto;
-  height: 100vh; /* ←画面いっぱい */
-}
-
-body {
-  font-family: "MS Gothic", "ＭＳ ゴシック", "Hiragino Kaku Gothic ProN", monospace;
-}
-
-tr:first-child td:nth-child(2),
-tr:first-child td:nth-child(3),
-tr:first-child td:nth-child(4),
-tr:first-child td:nth-child(5),
-tr:first-child td:nth-child(10),
-tr:first-child td:nth-child(11),
-tr:first-child td:nth-child(12),
-tr:first-child td:nth-child(13),
-tr:first-child td:nth-child(14),
-tr:first-child td:nth-child(15),
-tr:first-child td:nth-child(16),
-tr:first-child td:nth-child(17),
-tr:first-child td:nth-child(18),
-tr:first-child td:nth-child(19) {
-  background-color: #91e887;
-}
-
-tr:first-child td:nth-child(6),
-tr:first-child td:nth-child(7),
-tr:first-child td:nth-child(8),
-tr:first-child td:nth-child(9),
-tr:first-child td:nth-child(20),
-tr:first-child td:nth-child(21),
-tr:first-child td:nth-child(22),
-tr:first-child td:nth-child(23),
-tr:first-child td:nth-child(24),
-tr:first-child td:nth-child(25),
-tr:first-child td:nth-child(26),
-tr:first-child td:nth-child(27),
-tr:first-child td:nth-child(28),
-tr:first-child td:nth-child(29) {
-  background-color: #deb1de;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="blonzeclass.css">
+  <script src="blonzeclass.js" befer></script>
 </head>
-<body>
 
+<body>
+<h1 class="table-title">覚えておきたい28のぶどう品種🍇</h1>
 <div class="table-container">
   <table>
     <tbody>
@@ -339,52 +245,5 @@ tr:first-child td:nth-child(29) {
     </tbody>
   </table>
 </div>
-
-<script>
-/* ★1行目だけ7文字ごとに改行 */
-const firstRowCells = document.querySelectorAll("tr:first-child td");
-
-firstRowCells.forEach(td => {
-  const text = td.textContent;
-  const splitText = text.match(/.{1,7}/g); // 7文字ずつ区切る
-  if (splitText) {
-    td.innerHTML = splitText.join("<br>");
-  }
-});
-</script>
-
-<script>
-const cells = document.querySelectorAll("tr:nth-child(7) td");
-
-cells.forEach((td, index) => {
-  if (index === 0) {
-    // 1列目
-    td.style.textAlign = "center";
-    td.style.verticalAlign = "middle";
-  } else {
-    // 2列目以降
-    td.style.textAlign = "left";
-    td.style.verticalAlign = "top";
-    td.style.paddingLeft = "8px";
-  }
-});
-</script>
-
-<script>
-document.querySelectorAll(".reveal").forEach(el => {
-  el.addEventListener("click", () => {
-    if (el.classList.contains("show")) {
-      // 戻す
-      el.textContent = "？？？？"; // ←伏字
-      el.classList.remove("show");
-    } else {
-      // 表示
-      el.textContent = el.dataset.answer;
-      el.classList.add("show");
-    }
-  });
-});
-</script>
-
 </body>
 </html>
