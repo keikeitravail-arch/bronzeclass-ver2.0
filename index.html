@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* スクロール用のラッパー */
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #ccc;
+}
+
+/* テーブル */
+table {
+  border-collapse: collapse;
+  min-width: max-content;
+}
+
+/* セル */
+td {
+  border: 1px solid #333;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+
+/* 1行目固定 */
+tr:first-child td,
+tr:first-child th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 3;
+}
+
+/* 1列目固定 */
+td:first-child, 
+th:first-child {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 2;
+}
+
+/* 左上（1行1列）は最前面 */
+tr:first-child th:first-child {
+  z-index: 4;
+}
+
+.reveal {
+  background-color: yellow;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  height: 100vh; /* ←画面いっぱい */
+}
+
+body {
+  font-family: "MS Gothic", "ＭＳ ゴシック", "Hiragino Kaku Gothic ProN", monospace;
+}
+
+tr:first-child td:nth-child(2),
+tr:first-child td:nth-child(3),
+tr:first-child td:nth-child(4),
+tr:first-child td:nth-child(5),
+tr:first-child td:nth-child(10),
+tr:first-child td:nth-child(11),
+tr:first-child td:nth-child(12),
+tr:first-child td:nth-child(13),
+tr:first-child td:nth-child(14),
+tr:first-child td:nth-child(15),
+tr:first-child td:nth-child(16),
+tr:first-child td:nth-child(17),
+tr:first-child td:nth-child(18),
+tr:first-child td:nth-child(19) {
+  background-color: #91e887;
+}
+
+tr:first-child td:nth-child(6),
+tr:first-child td:nth-child(7),
+tr:first-child td:nth-child(8),
+tr:first-child td:nth-child(9),
+tr:first-child td:nth-child(20),
+tr:first-child td:nth-child(21),
+tr:first-child td:nth-child(22),
+tr:first-child td:nth-child(23),
+tr:first-child td:nth-child(24),
+tr:first-child td:nth-child(25),
+tr:first-child td:nth-child(26),
+tr:first-child td:nth-child(27),
+tr:first-child td:nth-child(28),
+tr:first-child td:nth-child(29) {
+  background-color: #deb1de;
+}
+</style>
+</head>
+<body>
+
+<div class="table-container">
+  <table>
+    <tbody>
+      <!-- 8行 -->
+      <!-- 1行ごとに28列 -->
+      <!-- JSなしで書く場合 -->
+      
+      <!-- 行1 -->
+      <tr>
+        <!-- 28マス -->
+        <!-- コピペで増やす -->
+        <td></td>
+        <td>甲州</td>
+        <td>シャルドネ</td>
+        <td>ソーヴィニヨン・ブラン</td>
+        <td>リースリング</td>
+        <td>カベルネ・ソーヴィニヨン</td>
+        <td>ピノ・ノワール</td>
+        <td>マスカット・ベーリーA</td>
+        <td>メルロ</td>
+        <td>アルバリーニョ</td>
+        <td>ヴィオニエ</td>
+        <td>ヴェルメンティーノ</td>
+        <td>グリューナー・ヴェルトリーナー</td>
+        <td>ゲヴェルツトラミネール</td>
+        <td>シュナン・ブラン</td>
+        <td>ジルヴァーナー</td>
+        <td>セミヨン</td>
+        <td>トロンテス</td>
+        <td>ピノ・グリ</td>
+        <td>カベルネ・フラン</td>
+        <td>カルメネール</td>
+        <td>ガメイ</td>
+        <td>グルナッシュ</td>
+        <td>サンジョベーゼ</td>
+        <td>シラー</td>
+        <td>ジンファンデル</td>
+        <td>テンプラニーニョ</td>
+        <td>ネッビオーロ</td>
+        <td>マルベック</td>
+      </tr>
+
+      <tr>
+         <td>原産</td>
+         <!-- 甲州 --><td></td>
+         <!-- シャルドネ --><td>ブルゴーニュ(フランス)</td>
+         <!-- ソーヴィニヨン・ブラン --><td>ボルドー(フランス)</td>
+         <!-- リースリング --><td><span class="reveal" data-answer="ドイツ">？？？？</span></td>
+         <!-- カベソー --><td>ボルドー(フランス)</td>
+         <!-- ピノ --><td>ブルゴーニュ(フランス)</td>
+         <!-- ベーリーA --><td>新潟</td>
+         <!-- メルロ --><td><span class="reveal" data-answer="ボルドー">？？？？</span>(フランス)</td>
+         <!-- アルバリーニョ --><td><span class="reveal" data-answer="イベリア">？？？？</span>半島北西部</td>
+         <!-- ヴィオニエ --><td><span class="reveal" data-answer="ローヌ地方北部">？？？？</span>(フランス)</td>
+         <!-- ヴェルメンティーノ --><td></td>
+         <!-- グリューナー --><td><span class="reveal" data-answer="オーストリア">？？？？</span></td>
+         <!-- ゲヴェ --><td>ドイツ</td>
+         <!-- シュナン・ブラン --><td>ロワール(フランス)</td>
+         <!-- ジルヴァーナー --><td><span class="reveal" data-answer="オーストリア">？？？？</span></td>
+         <!-- セミヨン --><td>ボルドー(フランス)</td>
+         <!-- トロンテス --><td><span class="reveal" data-answer="スペイン">？？？？</span></td>
+         <!-- ピノ・グリ --><td>ブルゴーニュ(フランス)</td>
+         <!-- カベルネ・フラン --><td>フランス南西部</td>
+         <!-- カルメネール --><td><span class="reveal" data-answer="ボルドー地方">？？？？</span>(フランス)</td>
+         <!-- ガメイ --><td>ボージョレ(フランス)</td>
+         <!-- グルナッシュ --><td><span class="reveal" data-answer="スペイン">？？？？</span></td>
+         <!-- サンジョベーゼ --><td><span class="reveal" data-answer="トスカーナ">？？？？</span>州(イタリア)</td>
+         <!-- シラー --><td><span class="reveal" data-answer="ローヌ地方北部">？？？？</span>(フランス)</td>
+         <!-- ジンファンデル --><td>ヨーロッパ</td>
+         <!-- テンプラニーニョ --><td><span class="reveal" data-answer="リオハ">？？？？</span>(スペイン)</td>
+         <!-- ネッビオーロ --><td><span class="reveal" data-answer="ピエモンテ">？？？？</span>州（イタリア北部）</td>
+         <!-- マルベック --><td>フランス南西部</td>
+      </tr>
+
+      <tr>
+         <td>主要産地</td>
+         <!-- 甲州 --><td>山梨</td>
+         <!-- シャルドネ --><td>世界中</td>
+         <!-- ソーヴィニヨン・ブラン --><td>世界中</td>
+         <!-- リースリング --><td><span class="reveal" data-answer="ドイツ">？？？？</span></td>
+         <!-- カベソー --><td>世界中</td>
+         <!-- ピノ --><td>世界中</td>
+         <!-- ベーリーA --><td>山梨</td>
+         <!-- メルロ --><td>世界中</td>
+         <!-- アルバリーニョ --><td><span class="reveal" data-answer="スペイン・ポルトガル">？？？？</span></td>
+         <!-- ヴィオニエ --><td>仏、カリフォルニア、南アフリカ、アルゼンチン、豪</td>
+         <!-- ヴェルメンティーノ --><td><span class="reveal" data-answer="サルデーニャ">？？？？</span>島(イタリア・トスカーナ州)、フランス南部、コルシカ島</td>
+         <!-- グリューナー --><td><span class="reveal" data-answer="オーストリア">？？？？</span></td>
+         <!-- ゲヴェ --><td>アルザス地方(フランス)、ドイツ、オーストリア、アメリカ北部</td>
+         <!-- シュナン・ブラン --><td><span class="reveal" data-answer="ロワール">？？？？</span>(フランス)、南アフリカ</td>
+         <!-- ジルヴァーナー --><td><span class="reveal" data-answer="ドイツ">？？？？</span>、<span class="reveal" data-answer="アルザス">？？？？</span>(フランス)</td>
+         <!-- セミヨン --><td>フランス、オーストラリア、南アフリカ、アルゼンチン</td>
+         <!-- トロンテス --><td><span class="reveal" data-answer="アルゼンチン">？？？？</span></td>
+         <!-- ピノ・グリ --><td>ドイツ、アルザス(フランス)</td>
+         <!-- カベルネ・フラン --><td>世界中</td>
+         <!-- カルメネール --><td><span class="reveal" data-answer="チリ">？？？？</span></td>
+         <!-- ガメイ --><td>ボージョレ地方(フランス)</td>
+         <!-- グルナッシュ --><td>地中海沿岸(特にスペイン、フランス南部)</td>
+         <!-- サンジョベーゼ --><td><span class="reveal" data-answer="トスカーナ">？？？？</span>州(イタリア)</td>
+         <!-- シラー --><td>世界中</td>
+         <!-- ジンファンデル --><td>アメリカ、南アフリカ、オーストラリア</td>
+         <!-- テンプラニーニョ --><td>スペイン、ポルトガル</td>
+         <!-- ネッビオーロ --><td>イタリア</td>
+         <!-- マルベック --><td><span class="reveal" data-answer="アルゼンチン">？？？？</span></td>
+      </tr>
+
+      <tr>
+        <td>交配・交雑</td>
+        <!-- 甲州 --><td></td>
+        <!-- シャルドネ --><td><span class="reveal" data-answer="ピノ・ノワール">？？？？</span>×グエ・ブラン</td>
+        <!-- ソーヴィニヨン・ブラン --><td></td>
+        <!-- リースリング --><td></td>
+        <!-- カベソー --><td><span class="reveal" data-answer="カベルネ・フラン">？？？？</span>×<span class="reveal" data-answer="ソーヴィニヨン・ブラン">？？？？</span></td>
+        <!-- ピノ --><td></td>
+        <!-- ベーリーA --><td>ベーリー(アメリカ系)×マスカット・ハンブルグ(ヨーロッパ系)</td>
+        <!-- メルロ --><td><span class="reveal" data-answer="カベルネ・フラン">？？？？</span>×マドレーヌ・ノワール・デ・シャラン</td>
+        <!-- アルバリーニョ --><td></td>
+        <!-- ヴィオニエ --><td></td>
+        <!-- ヴェルメンティーノ --><td></td>
+        <!-- グリューナー --><td></td>
+        <!-- ゲヴェ --><td></td>
+        <!-- シュナン・ブラン --><td></td>
+        <!-- ジルヴァーナー --><td></td>
+        <!-- セミヨン --><td></td>
+        <!-- トロンテス --><td>クロージャ×モスカテル・アレハンドリア</td>
+        <!-- ピノ・グリ --><td></td>
+        <!-- カベルネ・フラン --><td></td>
+        <!-- カルメネール --><td><span class="reveal" data-answer="カベルネ・フラン">？？？？</span>×グロ・カベルネ</td>
+        <!-- ガメイ --><td></td>
+        <!-- グルナッシュ --><td></td>
+        <!-- サンジョベーゼ --><td></td>
+        <!-- シラー --><td></td>
+        <!-- ジンファンデル --><td></td>
+        <!-- テンプラニーニョ --><td></td>
+        <!-- ネッビオーロ --><td></td>
+        <!-- マルベック --><td></td>
+      </tr>
+
+      <tr>
+        <td>果皮の厚さ</td>
+        <!-- 甲州 --><td>厚い</td>
+        <!-- シャルドネ --><td>薄い</td>
+        <!-- ソーヴィニヨン・ブラン --><td>薄い</td>
+        <!-- リースリング --><td></td>
+        <!-- カベソー --><td>厚い</td>
+        <!-- ピノ --><td>薄い</td>
+        <!-- ベーリーA --><td>薄い</td>
+        <!-- メルロ --><td></td>
+        <!-- アルバリーニョ --><td><span class="reveal" data-answer="厚い">？？？？</span></td>
+        <!-- ヴィオニエ --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- ヴェルメンティーノ --><td></td>
+        <!-- グリューナー --><td><span class="reveal" data-answer="厚い">？？？？</span></td>
+        <!-- ゲヴェ --><td><span class="reveal" data-answer="厚い">？？？？</span></td>
+        <!-- シュナン・ブラン --><td><span class="reveal" data-answer="厚い">？？？？</span></td>
+        <!-- ジルヴァーナー --><td><span class="reveal" data-answer="厚い">？？？？</span></td>
+        <!-- セミヨン --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- トロンテス --><td></td>
+        <!-- ピノ・グリ --><td></td>
+        <!-- カベルネ・フラン --><td></td>
+        <!-- カルメネール --><td></td>
+        <!-- ガメイ --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- グルナッシュ --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- サンジョベーゼ --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- シラー --><td><span class="reveal" data-answer="厚い">？？？？</span></td>
+        <!-- ジンファンデル --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- テンプラニーニョ --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- ネッビオーロ --><td><span class="reveal" data-answer="薄い">？？？？</span></td>
+        <!-- マルベック --><td></td>
+      </tr>
+
+      <tr>
+        <td>早熟か晩熟か</td>
+        <!-- 甲州 --><td>晩熟</td>
+        <!-- シャルドネ --><td></td>
+        <!-- ソーヴィニヨン・ブラン --><td></td>
+        <!-- リースリング --><td></td>
+        <!-- カベソー --><td>晩熟</td>
+        <!-- ピノ --><td>早熟</td>
+        <!-- ベーリーA --><td></td>
+        <!-- メルロ --><td>早熟</td>
+        <!-- アルバリーニョ --><td></td>
+        <!-- ヴィオニエ --><td></td>
+        <!-- ヴェルメンティーノ --><td></td>
+        <!-- グリューナー --><td></td>
+        <!-- ゲヴェ --><td></td>
+        <!-- シュナン・ブラン --><td></td>
+        <!-- ジルヴァーナー --><td>早熟</td>
+        <!-- セミヨン --><td></td>
+        <!-- トロンテス --><td></td>
+        <!-- ピノ・グリ --><td></td>
+        <!-- カベルネ・フラン --><td>早熟</td>
+        <!-- カルメネール --><td></td>
+        <!-- ガメイ --><td>早熟</td>
+        <!-- グルナッシュ --><td>晩熟</td>
+        <!-- サンジョベーゼ --><td></td>
+        <!-- シラー --><td></td>
+        <!-- ジンファンデル --><td></td>
+        <!-- テンプラニーニョ --><td></td>
+        <!-- ネッビオーロ --><td>晩熟</td>
+        <!-- マルベック --><td></td>
+      </tr>
+
+      <tr>
+         <td>その他の特徴</td>
+         <!-- 甲州 --><td>・奈良時代に<span class="reveal" data-answer="行基">？？？？</span>が育て始めた説と<span class="reveal" data-answer="1186">？？？？</span>年に雨宮勘解由が山道で見つけた蔓を持ち帰って育てたという説が存在<br><br>・<span class="reveal" data-answer="2010">？？？？</span>年に「国際ぶどう・ぶどう酒機構(O.I.V.)のリストに登録<br><br>・糖度があまり上がらない</td>
+         <!-- シャルドネ --><td>・「<span class="reveal" data-answer="白ワインの女王">？？？？</span>」とも呼ばれる<br><br>・「シャブリ」、「モンラッシェ」が有名</td>
+         <!-- ソーヴィニヨン・ブラン --><td>・<span class="reveal" data-answer="セミヨン">？？？？</span>とのブレンドで貴腐ワインが作られる<br><br>・近年、<span class="reveal" data-answer="ニュージーランド">？？？？</span>(国)で人気急上昇中</td>
+         <!-- リースリング --><td>・耐寒性が<span class="reveal" data-answer="強い">？？？？</span><br>・収量を増やしても質が落ちない<br>・酸が上品で、甘口から辛口まで<br>・<span class="reveal" data-answer="アルザス地方">？？？？</span>(仏)や<span class="reveal" data-answer="オーストリア">？？？？</span>(国)では辛口で高い評価あり<br><br>・ドイツ→酸味と甘みのバランスが素晴らしいワインへ<br>・アルザス→力強い辛口ワインへ<br>・オーストラリア→オイリーで引き締まったワイン<br>・米ワシントン州→少し甘みを残したスタイルで</td>
+         <!-- カベソー --><td>・木樽熟成で<span class="reveal" data-answer="バニラ">？？？？</span>や<span class="reveal" data-answer="コーヒー">？？？？</span>のニュアンスが加わる</td>
+         <!-- ピノ --><td>・フランス、ドイツ→<span class="reveal" data-answer="繊細でエレガント">？？？？</span>な味わいに仕上がる<br>・新世界→果実の甘さが全面に出た<span class="reveal" data-answer="ジューシー">？？？？</span>なスタイル</td>
+         <!-- ベーリーA --><td>・川上善兵衛が生みの親<br><br>・<span class="reveal" data-answer="2013">？？？？</span>年に「国際ぶどう・ぶどう酒機構(O.I.V.)のリストに登録</td>
+         <!-- メルロ --><td>・耐病性がある<br><br>・<span class="reveal" data-answer="サン・テミリオン">？？？？</span>やポムロールは世界的な銘醸地</td>
+         <!-- アルバリーニョ --><td>・<span class="reveal" data-answer="ヨード香">？？？？</span>(磯の香り)が魚介類との相性が良い<br><br>・この香りから「<span class="reveal" data-answer="海のワイン">？？？？</span>」とも呼ばれる</td>
+         <!-- ヴィオニエ --><td>・<span class="reveal" data-answer="糖度">？？？？</span>が上がりやすいが、<span class="reveal" data-answer="酸">？？？？</span>が落ちやすい<br><br>・銘醸地は<span class="reveal" data-answer="コンドリュー">？？？？</span>(ローヌ地方)</td>
+         <!-- ヴェルメンティーノ --><td>・<span class="reveal" data-answer="黄桃">？？？？</span>の香り<br><br>・後味に<span class="reveal" data-answer="グレープフルーツ">？？？？</span>のような微かな苦味</td>
+         <!-- グリューナー --><td>・レモンや<span class="reveal" data-answer="白コショウ">？？？？</span>の香り<br><br>・オーストリアの栽培面積の約<span class="reveal" data-answer="3">？？？？</span>割がこれ<br><br>・樹勢が強く乾燥に弱いため、収量と水分のコントロールが大事</td>
+         <!-- ゲヴェ --><td>・ゲヴェルツ＝<span class="reveal" data-answer="スパイス">？？？？</span>(ドイツ語)<br><br>・<span class="reveal" data-answer="ライチ">？？？？</span>の香り</td>
+         <!-- シュナン・ブラン --><td>・南アフリカでは「<span class="reveal" data-answer="スティーン">？？？？</span>」と呼ばれていた</td>
+         <!-- ジルヴァーナー --><td>・ドイツのフランケン地方では「<span class="reveal" data-answer="ボックスボイテル">？？？？</span>型」のボトルに詰められる</td>
+         <!-- セミヨン --><td>・<span class="reveal" data-answer="貴腐">？？？？</span>菌が付きやすい<br><br>・オーストラリアでは早摘みで作られた辛口ワインが人気</td>
+         <!-- トロンテス --><td>・マスカット系の甘い香りが感じられるが、味わいはドライの傾向<br><br>・アルゼンチン・サルタ州のカファジャテで造られたトロンテスは最も高い評価を得ている</td>
+         <!-- ピノ・グリ --><td>・灰色かび病やベト病に掛かりやすく、石灰岩が多い土壌では白化しやすい</td>
+         <!-- カベルネ・フラン --><td>・<span class="reveal" data-answer="カベルネ・ソーヴィニヨン">？？？？</span>の補助品種<br><br>・<span class="reveal" data-answer="ロワール">？？？？</span>地方(仏)では主要品種</td>
+         <!-- カルメネール --><td>・チリでは長い間、<span class="reveal" data-answer="メルロ">？？？？</span>と勘違いされてきたが<span class="reveal" data-answer="1994">？？？？</span>年のDNA鑑定により別品種であることを確認</td>
+         <!-- ガメイ --><td>・タンニンは控えめで、酸味のレベルは中程度、基本的には熟成させず持ち前のフルーティーさを生かしたスタイルが主流</td>
+         <!-- グルナッシュ --><td>・スペインでは<span class="reveal" data-answer="ガルナッチャ">？？？？</span>と呼ばれる<br><br>・<span class="reveal" data-answer="シラー">？？？？</span>や<span class="reveal" data-answer="ムール・ヴェードル">？？？？</span>とブランドされることが多い<br><br>・頭文字をとって「GSM」とも</td>
+         <!-- サンジョベーゼ --><td>・これから、「<span class="reveal" data-answer="キアンティ">？？？？</span>」や「<span class="reveal" data-answer="ブルネッロ">？？？？</span>・ディ・モンタルチーノ」が生産される</td>
+         <!-- シラー --><td>・ローヌ地方→スパイスの香りが強く、エレガントな味わいに<br>・オーストラリア→<span class="reveal" data-answer="シラーズ">？？？？</span>と呼ばれ、濃密な果実味となめらかなタンニンを持つ力強い味わいがある</td>
+         <!-- ジンファンデル --><td>・<span class="reveal" data-answer="カリフォルニア">？？？？</span>(米)の土着品種<br><br>・<span class="reveal" data-answer="アメリカンオーク">？？？？</span>樽で長期熟成するのが伝統スタイル</td>
+         <!-- テンプラニーニョ --><td>・スペインを代表するワイン<br><br>・病害への耐性は弱いものの、他の品種に比べて芽吹きが遅いため、春の遅霜の被害を受けにくい</td>
+         <!-- ネッビオーロ --><td>・由来はイタリア語の「Nebbia=<span class="reveal" data-answer="霧">？？？？</span>(日本語)」<br><br>・最高級ワインとされる<span class="reveal" data-answer="バローロ">？？？？</span>や<span class="reveal" data-answer="バルバレスコ">？？？？</span>はこの品種100%で造られる</td>
+         <!-- マルベック --><td>・アルゼンチンが世界の栽培面積の<span class="reveal" data-answer="9">？？？？</span>割を占める<br><br>・フランス→「<span class="reveal" data-answer="黒ワイン">？？？？</span>」と呼ばれていた<br>→濃厚な果実味と濃縮したタンニンと酸味を感じる力強い味わい<br><br>・アルゼンチン→濃厚でありながらジューシーで柔らかい果実味を感じる</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+/* ★1行目だけ7文字ごとに改行 */
+const firstRowCells = document.querySelectorAll("tr:first-child td");
+
+firstRowCells.forEach(td => {
+  const text = td.textContent;
+  const splitText = text.match(/.{1,7}/g); // 7文字ずつ区切る
+  if (splitText) {
+    td.innerHTML = splitText.join("<br>");
+  }
+});
+</script>
+
+<script>
+const cells = document.querySelectorAll("tr:nth-child(7) td");
+
+cells.forEach((td, index) => {
+  if (index === 0) {
+    // 1列目
+    td.style.textAlign = "center";
+    td.style.verticalAlign = "middle";
+  } else {
+    // 2列目以降
+    td.style.textAlign = "left";
+    td.style.verticalAlign = "top";
+    td.style.paddingLeft = "8px";
+  }
+});
+</script>
+
+<script>
+document.querySelectorAll(".reveal").forEach(el => {
+  el.addEventListener("click", () => {
+    if (el.classList.contains("show")) {
+      // 戻す
+      el.textContent = "？？？？"; // ←伏字
+      el.classList.remove("show");
+    } else {
+      // 表示
+      el.textContent = el.dataset.answer;
+      el.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
