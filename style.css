@@ -1,0 +1,116 @@
+.table-title {
+  font-family: "MS Gothic", "ＭＳ ゴシック", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-weight: bold;
+  font-size: 16pt;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 5pt;
+}
+
+/* スクロール用のラッパー */
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #ccc;
+}
+
+/* テーブル */
+table {
+  border-collapse: collapse;
+  min-width: max-content;
+}
+
+/* セル */
+td {
+  border: 1px solid #333;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+
+/* 1行目固定 */
+tr:first-child td,
+tr:first-child th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 3;
+}
+
+/* 1列目固定 */
+td:first-child, 
+th:first-child {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 2;
+}
+
+/* 左上（1行1列）は最前面 */
+tr:first-child th:first-child {
+  z-index: 4;
+}
+
+.reveal {
+  background-color: yellow;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  height: 100vh; /* ←画面いっぱい */
+}
+
+body {
+  font-family: "MS Gothic", "ＭＳ ゴシック", "Hiragino Kaku Gothic ProN", monospace;
+}
+
+tr:first-child td:nth-child(2),
+tr:first-child td:nth-child(3),
+tr:first-child td:nth-child(4),
+tr:first-child td:nth-child(5),
+tr:first-child td:nth-child(10),
+tr:first-child td:nth-child(11),
+tr:first-child td:nth-child(12),
+tr:first-child td:nth-child(13),
+tr:first-child td:nth-child(14),
+tr:first-child td:nth-child(15),
+tr:first-child td:nth-child(16),
+tr:first-child td:nth-child(17),
+tr:first-child td:nth-child(18),
+tr:first-child td:nth-child(19) {
+  background-color: #91e887;
+}
+
+tr:first-child td:nth-child(6),
+tr:first-child td:nth-child(7),
+tr:first-child td:nth-child(8),
+tr:first-child td:nth-child(9),
+tr:first-child td:nth-child(20),
+tr:first-child td:nth-child(21),
+tr:first-child td:nth-child(22),
+tr:first-child td:nth-child(23),
+tr:first-child td:nth-child(24),
+tr:first-child td:nth-child(25),
+tr:first-child td:nth-child(26),
+tr:first-child td:nth-child(27),
+tr:first-child td:nth-child(28),
+tr:first-child td:nth-child(29) {
+  background-color: #deb1de;
+}
+
+/* 7行目の2列目以降 → 左上揃え */
+tr:nth-child(7) td:not(:first-child) {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* 7行目の1列目 → 中央・中段 */
+tr:nth-child(7) td:first-child {
+  text-align: center;
+  vertical-align: middle;
+}
